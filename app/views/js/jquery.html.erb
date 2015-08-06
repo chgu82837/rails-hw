@@ -1,0 +1,48 @@
+<% js 'jquery-hw' %>
+
+<div class="container">
+    <div class="row"><br></div>
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Chgu82837's Events</div>
+            <div class="panel-body">
+                <select class="form-control" id="type-select">
+                    <option value="PushEvent">PushEvent</option>
+                    <option value="ForkEvent">ForkEvent</option>
+                    <option value="PullRequestEvent">PullRequestEvent</option>
+                    <option value="WatchEvent">WatchEvent</option>
+                    <option value="CommitCommentEvent">CommitCommentEvent</option>
+                </select>
+                <hr>
+                <label class="radio-inline">
+                    <input name="act" type="radio" value="hide">
+                    Hide
+                </label>
+                <label class="radio-inline">
+                    <input name="act" type="radio" value="emphises">
+                    Emphises
+                </label>
+                <label class="radio-inline">
+                    <input name="act" type="radio" value="done">
+                    Done
+                </label>
+                <button id="go" type="button" class="btn btn-primary pull-right">Go</button>
+            </div>
+        </div>
+    </div>
+    <div class="github-event">
+        <script charset="utf-8" src="https://api.github.com/users/chgu82837/events" type="jsx-each">
+            <div class="col-xs-12 col-md-6 github-{type}">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{type}</div>
+                        <div class="panel-body">
+                            <p>
+                                <a href="{repo.url}">{repo.name}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+    </div>
+    </div>

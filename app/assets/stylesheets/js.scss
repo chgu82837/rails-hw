@@ -1,0 +1,19 @@
+/*
+    *= require bootstrap.min
+*/
+
+.g {
+    color: green !important;
+}
+
+.github-event {
+    .hide {
+        display: none;
+    }
+    .emphises .panel-heading {
+        background-color: darksalmon;
+    }
+    .done .panel-heading {
+        background-color: lightgreen;
+    }
+}

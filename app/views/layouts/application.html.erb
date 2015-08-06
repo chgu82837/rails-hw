@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title><%= @title || "Workspace" %></title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= yield(:css) %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= link_to "Back to index", root_path %>
 <%= link_to "Help", help_path %>
-<%= yield %>
+<%= link_to "js", js_path %>
+<%= link_to "jquery_homework", js_hw_path %>
+<%= link_to "admin", admin_root_path %>
+<%= content_for?(:content) ? yield(:content) : yield %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag params[:controller] %>
+<%= yield(:js) %>
 
 </body>
 </html>

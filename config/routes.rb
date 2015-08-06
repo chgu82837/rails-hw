@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  resources :bookstores
+  resources :bookstores, only: [:index, :create, :new, :show]
   resources :authors
   resources :books
 
   root 'welcome#index'
   get '/help' => 'books#help', as: 'help'
+  get '/js' => 'js#index', as: 'js'
+  get '/jquery-hw' => 'js#jquery', as: 'js_hw'
+
+  namespace "admin" do
+    root 'admin#index'
+    resources :user
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

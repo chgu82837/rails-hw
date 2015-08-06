@@ -1,0 +1,8 @@
+<h1>Hello admin</h1>
+<h2>User list</h2>
+<% @users.each do |u| %>
+  <%= r_user_inline u %>
+<% end %>
+
+<h2>Add user</h2>
+<%= r_user_form(@new_user) %>
